@@ -1,0 +1,46 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://dqwle7q6ksd7c"]
+
+[ext_resource type="Shader" uid="uid://ckeaimqgbxh7h" path="res://Sconce.gdshader" id="1_btvku"]
+[ext_resource type="Texture2D" uid="uid://d2q6q3dl4rjqv" path="res://frame_grad_1.tres" id="2_op82j"]
+[ext_resource type="Texture2D" uid="uid://cqvjpx0xs4rft" path="res://frame_grad_2.tres" id="3_l376i"]
+
+[sub_resource type="Gradient" id="Gradient_3lfkb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lnp5y"]
+gradient = SubResource("Gradient_3lfkb")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3vbh0"]
+noise_type = 0
+frequency = 0.0916
+domain_warp_enabled = true
+domain_warp_amplitude = 57.445
+domain_warp_frequency = 0.01
+domain_warp_fractal_octaves = 3
+domain_warp_fractal_lacunarity = 9.755
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_46xed"]
+width = 64
+height = 128
+noise = SubResource("FastNoiseLite_3vbh0")
+seamless = true
+
+[resource]
+shader = ExtResource("1_btvku")
+shader_parameter/debug = false
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_46xed")
+shader_parameter/grad_tex = SubResource("GradientTexture2D_lnp5y")
+shader_parameter/frame_grad_1 = ExtResource("2_op82j")
+shader_parameter/frame_grad_2 = ExtResource("3_l376i")
+shader_parameter/mask_color = Color(1, 1, 1, 1)
+shader_parameter/bg_color = Color(0, 0, 0, 0)
+shader_parameter/flame_0 = Color(0.92156863, 0.64705884, 0.4, 1)
+shader_parameter/flame_1 = Color(0.9019608, 0.48235294, 0.2, 1)
+shader_parameter/flame_2 = Color(0.85490197, 0.23529412, 0.078431375, 1)
+shader_parameter/flame_3 = Color(0.8, 0.105882354, 0.02745098, 1)
+shader_parameter/scroll_speed = 15.0
+shader_parameter/thresh_f0 = 0.425
+shader_parameter/thresh_f1 = 0.565
+shader_parameter/thresh_f2 = 0.765
+shader_parameter/thresh_f3 = 0.895
