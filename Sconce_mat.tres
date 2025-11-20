@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://dqwle7q6ksd7c"]
 
-[ext_resource type="Shader" uid="uid://ckeaimqgbxh7h" path="res://Sconce.gdshader" id="1_btvku"]
+[ext_resource type="Shader" uid="uid://ckeaimqgbxh7h" path="res://pixel_fire.gdshader" id="1_btvku"]
 [ext_resource type="Texture2D" uid="uid://d2q6q3dl4rjqv" path="res://frame_grad_1.tres" id="2_op82j"]
 [ext_resource type="Texture2D" uid="uid://cqvjpx0xs4rft" path="res://frame_grad_2.tres" id="3_l376i"]
 
@@ -8,6 +8,7 @@
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lnp5y"]
 gradient = SubResource("Gradient_3lfkb")
+height = 128
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -29,6 +30,7 @@ seamless = true
 [resource]
 shader = ExtResource("1_btvku")
 shader_parameter/debug = false
+shader_parameter/pallet_size = 4
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_46xed")
 shader_parameter/grad_tex = SubResource("GradientTexture2D_lnp5y")
 shader_parameter/frame_grad_1 = ExtResource("2_op82j")

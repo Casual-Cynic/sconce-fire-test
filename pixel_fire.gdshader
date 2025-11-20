@@ -3,6 +3,8 @@ shader_type canvas_item;
 //shows resulting map texture before pallet_swapping
 uniform bool debug;
 
+uniform int pallet_size;
+
 
 //###MAKE SURE ALL OF THE FOLLOWING TEXTURES ARE SET TO THE SAME SIZE AS YOUR SPRITE###
 //Theses are the input textures for shaping the flame.
@@ -78,13 +80,13 @@ void fragment() {
 		//Next we step through every threshold and if its "lumincance" is less than the threshold we set
 			//then the pixel's color is set to match the corrisponding flame color (ie flame_X)
 			//At the end, if it doesnt fall below any of the threshold values its set to the bg_color.
-		if (map_lum < thresh_f0) {
+		if (map_lum < thresh_f0 && pallet_size >= 1) {
 			COLOR = flame_0;
-		} else if (map_lum < thresh_f1) {
+		} else if (map_lum < thresh_f1 && pallet_size >= 2) {
 			COLOR = flame_1;
-		} else if (map_lum < thresh_f2) {
+		} else if (map_lum < thresh_f2 && pallet_size >= 3) {
 			COLOR = flame_2;
-		} else if (map_lum < thresh_f3) {
+		} else if (map_lum < thresh_f3 && pallet_size >= 4) {
 			COLOR = flame_3;
 		} else {
 			COLOR = bg_color;

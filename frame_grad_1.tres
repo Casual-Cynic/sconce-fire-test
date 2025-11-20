@@ -4,5 +4,6 @@
 
 [resource]
 gradient = SubResource("Gradient_l376i")
+height = 128
 fill_from = Vector2(0.20940171, 1)
 fill_to = Vector2(0, 0.9145299)
